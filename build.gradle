@@ -28,6 +28,7 @@ buildscript {
 
     //Rx
     ext.rxKotlinVersion = '2.4.0'
+    ext.rxAndroidVersion = '2.1.1'
 
     //Retrofit
     ext.retrofitVersion = '2.8.1'
@@ -40,6 +41,9 @@ buildscript {
 
     //Paging
     ext.pagingVersion = '2.1.2'
+
+    //OkHttp
+    ext.okHttpVersion = '4.5.0'
 
     repositories {
         google()

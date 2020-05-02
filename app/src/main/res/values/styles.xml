@@ -8,4 +8,19 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="StrongTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/strong_text_size</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="CommonTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/common_text_size</item>
+    </style>
+
+    <style name="VacancyDetailsConditionTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/vacancy_details_condition_text_size</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

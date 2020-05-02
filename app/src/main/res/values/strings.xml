@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">JobList</string>
+
+    <string name="search_hint">Поиск вакансий в Москве</string>
+    <string name="salary_empty_text">по договорённости</string>
+    <string name="salary_from_text">от</string>
+    <string name="salary_to_text">до</string>
+    <string name="metro_text">метро:</string>
+    <string name="loading_error">Ошибка загрузки данных./n Проверьте интернет соединение.</string>
 </resources>

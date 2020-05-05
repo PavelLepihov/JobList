@@ -1,6 +1,6 @@
 package com.blindfalcon.joblist.data.repos
 
-import com.blindfalcon.joblist.data.mappers.IVacancyMapper
+import com.blindfalcon.joblist.data.mappers.VacancyMapper
 import com.blindfalcon.joblist.data.remote.api.VacancyApi
 import com.blindfalcon.joblist.data.repos.entity.Vacancy
 import io.reactivex.Single
@@ -12,7 +12,7 @@ interface IVacancyRepo {
 
 class VacancyRepo(
     private val api: VacancyApi,
-    private val mapper: IVacancyMapper
+    private val mapper: VacancyMapper
 ) : IVacancyRepo {
 
     override fun getVacancyList(keyword: String): Single<List<Vacancy>> =

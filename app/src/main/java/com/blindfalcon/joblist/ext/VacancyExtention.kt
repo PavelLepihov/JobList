@@ -3,8 +3,10 @@ package com.blindfalcon.joblist.ext
 import android.content.Context
 import com.blindfalcon.joblist.R
 import com.blindfalcon.joblist.data.repos.entity.Vacancy
+import java.text.SimpleDateFormat
+import java.util.*
 
-fun Vacancy.getSalary(context : Context): String {
+fun Vacancy.getSalary(context: Context): String {
     var salary = ""
     if (paymentFrom == 0 && paymentTo == 0) {
         salary = context.getString(R.string.salary_empty_text)
@@ -18,15 +20,15 @@ fun Vacancy.getSalary(context : Context): String {
     return salary
 }
 
-fun Vacancy.getDate() : String {
-    val sdf = java.text.SimpleDateFormat("dd-MM-yyyy", java.util.Locale.ENGLISH)
-    val date = java.util.Date(date.toLong() * 1000)
+fun Vacancy.getDate(): String {
+    val sdf = SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH)
+    val date = Date(date.toLong() * 1000)
     return sdf.format(date)
 }
 
-fun Vacancy.getMetro(context : Context) : String =
+fun Vacancy.getMetro(): String =
     if (metro.isNotEmpty()) {
-        context.getString(R.string.metro_text) + " " + metro[0].metroTitle
+        metro.joinToString(", ") { it.metroTitle }
     } else {
         ""
     }

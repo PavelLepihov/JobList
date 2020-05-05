@@ -4,6 +4,7 @@ import com.blindfalcon.joblist.BuildConfig
 import com.blindfalcon.joblist.data.remote.api.API_ENDPOINT
 import com.blindfalcon.joblist.data.remote.api.API_KEY
 import com.blindfalcon.joblist.data.remote.api.APP_ID_HEADER
+import com.google.gson.GsonBuilder
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -54,6 +55,8 @@ val networkModule = module {
             }.build())
         }
     }
+
+    single { GsonBuilder().create() }
 
     single { Cache(androidApplication().cacheDir, CASH_SIZE) }
 }

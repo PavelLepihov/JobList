@@ -45,6 +45,9 @@ buildscript {
     //OkHttp
     ext.okHttpVersion = '4.5.0'
 
+    //Image
+    ext.coilVersion = '0.10.1'
+
     repositories {
         google()
         jcenter()

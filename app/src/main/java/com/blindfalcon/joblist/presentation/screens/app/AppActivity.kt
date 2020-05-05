@@ -11,7 +11,7 @@ import org.koin.androidx.viewmodel.scope.viewModel
 
 class AppActivity : AppCompatActivity() {
 
-    private val viewModel: AppActivityViewModel by lifecycleScope.viewModel(this)
+    val viewModel: AppActivityViewModel by lifecycleScope.viewModel(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,5 +1,6 @@
 package com.blindfalcon.joblist.di.modules
 
+import com.blindfalcon.joblist.presentation.screens.app.AppActivity
 import com.blindfalcon.joblist.presentation.screens.app.AppActivityViewModel
 import com.blindfalcon.joblist.presentation.screens.main.MainFlowFragment
 import com.blindfalcon.joblist.presentation.screens.main.MainFlowViewModel
@@ -10,9 +11,12 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val viewModelModule = module {
+const val ID = "000"
 
-    viewModel { AppActivityViewModel() }
+val viewModelModule = module {
+    scope<AppActivity> {
+        viewModel { AppActivityViewModel() }
+    }
 
     scope(named<MainFlowFragment>()) {
         viewModel(named<MainFlowFragment>()) { MainFlowViewModel() }

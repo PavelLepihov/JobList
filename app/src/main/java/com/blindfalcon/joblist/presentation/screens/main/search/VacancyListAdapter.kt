@@ -3,12 +3,15 @@ package com.blindfalcon.joblist.presentation.screens.main.search
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.api.load
 import com.blindfalcon.joblist.R
 import com.blindfalcon.joblist.data.repos.entity.Vacancy
 import com.blindfalcon.joblist.ext.getDate
@@ -38,32 +41,40 @@ class VacancyListAdapter(
 class VacancyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val cvItemRoot: ConstraintLayout = itemView.findViewById(R.id.cl_item_root)
     private val tvPosition: TextView = itemView.findViewById(R.id.tv_position)
+    private val ivCompany: ImageView = itemView.findViewById(R.id.iv_company)
     private val tvCompany: TextView = itemView.findViewById(R.id.tv_company)
+    private val ivMetro: ImageView = itemView.findViewById(R.id.iv_metro)
     private val tvMetro: TextView = itemView.findViewById(R.id.tv_metro)
     private val tvSalary: TextView = itemView.findViewById(R.id.tv_salary)
     private val tvDate: TextView = itemView.findViewById(R.id.tv_date)
-    private val ivIcon: TextView = itemView.findViewById(R.id.iv_image)
+    private val ivIcon: ImageView = itemView.findViewById(R.id.iv_image)
     fun bind(
         context: Context,
         item: Vacancy,
         onVacancyItemClickListener: (vacancyId: Int) -> Unit
     ) {
         tvPosition.text = item.profession
-        tvCompany.text = item.client?.clientTitle
-        tvMetro.text = item.getMetro(context)
+        item.client?.clientTitle?.let {
+            tvCompany.text = it
+            tvCompany.visibility = VISIBLE
+            ivCompany.visibility = VISIBLE
+        }
+        if (item.getMetro().isNotBlank()) {
+            tvMetro.text = item.getMetro()
+            tvMetro.visibility = VISIBLE
+            ivMetro.visibility = VISIBLE
+        }
         tvSalary.text = item.getSalary(context)
         tvDate.text = item.getDate()
-
+        ivIcon.load(item.client?.logo)
+        cvItemRoot.setOnClickListener { onVacancyItemClickListener(item.id) }
     }
 }
 
 class VacancyDiffer : DiffUtil.ItemCallback<Vacancy>() {
-    override fun areItemsTheSame(oldItem: Vacancy, newItem: Vacancy): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun areItemsTheSame(oldItem: Vacancy, newItem: Vacancy): Boolean =
+        oldItem.id == newItem.id
 
-    override fun areContentsTheSame(oldItem: Vacancy, newItem: Vacancy): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
+    override fun areContentsTheSame(oldItem: Vacancy, newItem: Vacancy): Boolean =
+        oldItem == newItem
 }

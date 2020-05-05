@@ -6,5 +6,6 @@
     <string name="salary_from_text">от</string>
     <string name="salary_to_text">до</string>
     <string name="metro_text">метро:</string>
-    <string name="loading_error">Ошибка загрузки данных./n Проверьте интернет соединение.</string>
+    <string name="loading_error">Ошибка загрузки данных. \nПроверьте интернет соединение.</string>
+    <string name="empty_search_error">Поисковый запрос не может быть пустым.</string>
 </resources>

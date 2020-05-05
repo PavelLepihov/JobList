@@ -8,4 +8,8 @@
     <string name="metro_text">метро:</string>
     <string name="loading_error">Ошибка загрузки данных. \nПроверьте интернет соединение.</string>
     <string name="empty_search_error">Поисковый запрос не может быть пустым.</string>
+
+    <string name="duties">Обязанности:</string>
+    <string name="requirements">Требования:</string>
+    <string name="conditions">Условия:</string>
 </resources>

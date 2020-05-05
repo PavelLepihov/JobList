@@ -2,7 +2,6 @@ package com.blindfalcon.joblist.di.modules
 
 import com.blindfalcon.joblist.presentation.screens.app.AppActivity
 import com.blindfalcon.joblist.presentation.screens.app.AppActivityViewModel
-import com.blindfalcon.joblist.presentation.screens.main.MainFlowFragment
 import com.blindfalcon.joblist.presentation.screens.main.MainFlowViewModel
 import com.blindfalcon.joblist.presentation.screens.main.details.DetailsFragment
 import com.blindfalcon.joblist.presentation.screens.main.search.SearchFragment
@@ -18,9 +17,7 @@ val viewModelModule = module {
         viewModel { AppActivityViewModel() }
     }
 
-    scope(named<MainFlowFragment>()) {
-        viewModel(named<MainFlowFragment>()) { MainFlowViewModel() }
-    }
+    viewModel { MainFlowViewModel() }
 
     scope(named<SearchFragment>()) {
         viewModel(named<SearchFragment>()) { SearchScreenViewModel(get()) }

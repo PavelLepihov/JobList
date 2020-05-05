@@ -10,16 +10,11 @@ import com.blindfalcon.joblist.R
 import com.blindfalcon.joblist.ext.replaceChildFragment
 import com.blindfalcon.joblist.presentation.screens.main.details.DetailsFragment
 import com.blindfalcon.joblist.presentation.screens.main.search.SearchFragment
-import org.koin.androidx.scope.lifecycleScope
-import org.koin.androidx.viewmodel.scope.viewModel
-import org.koin.core.qualifier.named
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFlowFragment : Fragment() {
 
-    private val viewModel: MainFlowViewModel by lifecycleScope.viewModel(
-        this,
-        named<MainFlowFragment>()
-    )
+    private val viewModel: MainFlowViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

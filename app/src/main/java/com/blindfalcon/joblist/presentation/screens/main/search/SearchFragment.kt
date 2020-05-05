@@ -76,32 +76,28 @@ class SearchFragment : Fragment() {
 
     private fun onLoading() {
         tv_error.visibility = GONE
-        if (isNotRefresh) {
-            pb_loading.visibility = VISIBLE
-        } else {
-            srl_search.isRefreshing = true
-        }
+        setLoadingVisibility(true)
     }
 
     private fun onError() {
         rv_search.visibility = GONE
         tv_error.visibility = VISIBLE
-        if (isNotRefresh) {
-            pb_loading.visibility = GONE
-        } else {
-            srl_search.isRefreshing = false
-        }
+        setLoadingVisibility(false)
     }
 
     private fun onLoadData(vacancyList: List<Vacancy>) {
         tv_error.visibility = GONE
         rv_search.visibility = VISIBLE
-        if (isNotRefresh) {
-            pb_loading.visibility = GONE
-        } else {
-            srl_search.isRefreshing = false
-        }
+        setLoadingVisibility(false)
         vacancyAdapter.submitList(vacancyList)
+    }
+
+    private fun setLoadingVisibility(isVisible: Boolean) {
+        if (isNotRefresh) {
+            pb_loading.visibility = if (isVisible) VISIBLE else GONE
+        } else {
+            srl_search.isRefreshing = isVisible
+        }
     }
 
     private fun onItemClick(vacancyId: Int) {

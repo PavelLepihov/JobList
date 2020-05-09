@@ -1,15 +1,12 @@
 package com.blindfalcon.joblist.presentation.screens.main.search
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.blindfalcon.joblist.domain.SearchScreenInteractor
+import com.blindfalcon.joblist.presentation.screens.main.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class SearchScreenViewModel(private val interactor: SearchScreenInteractor) : ViewModel() {
-    private val compositeDisposable = CompositeDisposable()
-    val screenState = MutableLiveData<SearchScreenEvent>()
+class SearchScreenViewModel(private val interactor: SearchScreenInteractor) :
+    BaseViewModel<SearchScreenEvent>() {
 
     fun loadData(keyword: String) {
         compositeDisposable.add(
@@ -25,9 +22,5 @@ class SearchScreenViewModel(private val interactor: SearchScreenInteractor) : Vi
 
     fun onVacancyClick(vacancyId: Int) {
         screenState.postValue(SearchScreenEvent.VacancyClicked(vacancyId))
-    }
-
-    override fun onCleared() {
-        compositeDisposable.clear()
     }
 }

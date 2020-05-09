@@ -1,248 +1,304 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.screens.main.details.DetailsFragment">
 
-    <ImageView
-        android:id="@+id/iv_vacancy_date"
-        android:layout_margin="@dimen/vacancy_list_item_text_margin"
-        android:src="@drawable/ic_last_update"
-        app:layout_constraintTop_toTopOf="@id/tv_vacancy_date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_vacancy_date"
-        app:layout_constraintEnd_toStartOf="@id/tv_vacancy_date"
-        app:layout_constraintBottom_toBottomOf="@id/tv_vacancy_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/tv_vacancy_date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/vacancy_list_item_horizontal_margin"
-        android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
-        android:theme="@style/CommonTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/iv_vacancy_date"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Date"/>
-
-    <ImageView
-        android:id="@+id/iv_vacancy_position"
-        android:layout_margin="@dimen/vacancy_list_item_text_margin"
-        android:src="@drawable/ic_profession"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_vacancy_position"
-        app:layout_constraintBottom_toBottomOf="@id/tv_vacancy_position"
-        app:layout_constraintEnd_toStartOf="@id/tv_vacancy_position"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/tv_vacancy_position"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
-        android:layout_marginBottom="@dimen/vacancy_details_vertical_margin"
-        android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
-        app:layout_constraintStart_toEndOf="@id/iv_vacancy_position"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_vacancy_date"
-        android:theme="@style/StrongTextView"
-        tools:text="Position"/>
-
-    <ImageView
-        android:id="@+id/iv_vacancy_metro"
-        android:layout_margin="@dimen/vacancy_list_item_text_margin"
-        android:src="@drawable/ic_metro"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="@id/tv_vacancy_metro"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_vacancy_metro"
-        app:layout_constraintBottom_toBottomOf="@id/tv_vacancy_metro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/tv_vacancy_metro"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
-        android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
-        android:theme="@style/CommonTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/iv_vacancy_metro"
-        app:layout_constraintTop_toBottomOf="@id/tv_vacancy_position"
-        tools:text="Metro"/>
-
-    <ImageView
-        android:id="@+id/iv_vacancy_salary"
-        android:layout_margin="@dimen/vacancy_list_item_text_margin"
-        android:src="@drawable/ic_salary"
-        app:layout_constraintTop_toTopOf="@id/tv_vacancy_salary"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_vacancy_salary"
-        app:layout_constraintBottom_toBottomOf="@id/tv_vacancy_salary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/tv_vacancy_salary"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
-        android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
-        android:theme="@style/StrongTextView"
-        app:layout_constraintStart_toEndOf="@id/iv_vacancy_salary"
-        app:layout_constraintTop_toBottomOf="@id/tv_vacancy_metro"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Salary"/>
-
-    <View
-        android:id="@+id/first_divider"
-        android:visibility="gone"
+    <ScrollView
+        android:id="@+id/sv_details"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="?android:attr/listDivider"
-        android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
-        android:layout_marginEnd="@dimen/vacancy_details_horizontal_margin"
-        android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
-        android:layout_marginBottom="@dimen/vacancy_details_vertical_margin"
-        app:layout_constraintTop_toBottomOf="@id/tv_vacancy_salary"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_vacancy_company"
-        android:layout_margin="@dimen/vacancy_list_item_text_margin"
-        android:src="@drawable/ic_business"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="@id/tv_vacancy_company"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/iv_company_logo"
-        app:layout_constraintBottom_toBottomOf="@id/tv_vacancy_company"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_data_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
 
-    <ImageView
-        android:id="@+id/iv_company_logo"
-        android:visibility="gone"
-        android:layout_width="@dimen/vacancy_details_company_logo_width"
-        android:layout_height="@dimen/vacancy_details_company_logo_height"
-        app:layout_constraintTop_toBottomOf="@id/first_divider"
-        app:layout_constraintBottom_toTopOf="@id/second_divider"
-        app:layout_constraintStart_toEndOf="@id/iv_vacancy_company"
-        app:layout_constraintEnd_toStartOf="@id/tv_vacancy_company"/>
+            <ImageView
+                android:id="@+id/iv_vacancy_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/vacancy_list_item_text_margin"
+                android:src="@drawable/ic_last_update"
+                app:layout_constraintBottom_toBottomOf="@id/tv_vacancy_date"
+                app:layout_constraintEnd_toStartOf="@id/tv_vacancy_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_date"
+                app:layout_constraintTop_toTopOf="@id/tv_vacancy_date" />
 
-    <TextView
-        android:id="@+id/tv_vacancy_company"
-        android:visibility="gone"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
-        android:layout_marginEnd="@dimen/vacancy_details_horizontal_margin"
-        android:theme="@style/CommonTextView"
-        app:layout_constraintTop_toBottomOf="@id/first_divider"
-        app:layout_constraintBottom_toTopOf="@id/second_divider"
-        app:layout_constraintStart_toEndOf="@id/iv_company_logo"
-        tools:text="Company name"/>
+            <TextView
+                android:id="@+id/tv_vacancy_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/vacancy_list_item_horizontal_margin"
+                android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
+                android:theme="@style/CommonTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_vacancy_date"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Date" />
 
-    <View
-        android:id="@+id/second_divider"
+            <ImageView
+                android:id="@+id/iv_vacancy_position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/vacancy_list_item_text_margin"
+                android:src="@drawable/ic_profession"
+                app:layout_constraintBottom_toBottomOf="@id/tv_vacancy_position"
+                app:layout_constraintEnd_toStartOf="@id/tv_vacancy_position"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_vacancy_position" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_position"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
+                android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
+                android:layout_marginBottom="@dimen/vacancy_details_vertical_margin"
+                android:theme="@style/StrongTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_vacancy_position"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_date"
+                tools:text="Position" />
+
+            <ImageView
+                android:id="@+id/iv_vacancy_metro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/vacancy_list_item_text_margin"
+                android:src="@drawable/ic_metro"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/tv_vacancy_metro"
+                app:layout_constraintEnd_toStartOf="@id/tv_vacancy_metro"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_vacancy_metro" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_metro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
+                android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
+                android:theme="@style/CommonTextView"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_vacancy_metro"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_position"
+                tools:text="Metro" />
+
+            <ImageView
+                android:id="@+id/iv_vacancy_salary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/vacancy_list_item_text_margin"
+                android:src="@drawable/ic_salary"
+                app:layout_constraintBottom_toBottomOf="@id/tv_vacancy_salary"
+                app:layout_constraintEnd_toStartOf="@id/tv_vacancy_salary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_vacancy_salary" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_salary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
+                android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
+                android:theme="@style/StrongTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_vacancy_salary"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_metro"
+                tools:text="Salary" />
+
+            <View
+                android:id="@+id/first_divider"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
+                android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
+                android:layout_marginEnd="@dimen/vacancy_details_horizontal_margin"
+                android:layout_marginBottom="@dimen/vacancy_details_vertical_margin"
+                android:background="?android:attr/listDivider"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_salary" />
+
+            <ImageView
+                android:id="@+id/iv_vacancy_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_business"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/tv_vacancy_company"
+                app:layout_constraintEnd_toStartOf="@id/iv_stub"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_vacancy_company" />
+
+            <ImageView
+                android:id="@+id/iv_company_logo"
+                android:layout_width="@dimen/vacancy_details_company_logo_width"
+                android:layout_height="@dimen/vacancy_details_company_logo_height"
+                android:layout_margin="8dp"
+                android:adjustViewBounds="true"
+
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/second_divider"
+                app:layout_constraintEnd_toStartOf="@id/tv_vacancy_company"
+                app:layout_constraintStart_toEndOf="@id/iv_stub"
+                app:layout_constraintTop_toBottomOf="@id/first_divider" />
+
+            <ImageView
+                android:id="@+id/iv_stub"
+                android:layout_width="1dp"
+                android:layout_height="@dimen/vacancy_details_company_logo_height"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@id/second_divider"
+                app:layout_constraintEnd_toStartOf="@id/iv_company_logo"
+                app:layout_constraintStart_toEndOf="@id/iv_vacancy_company"
+                app:layout_constraintTop_toBottomOf="@id/first_divider" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_company"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
+                android:layout_marginEnd="@dimen/vacancy_details_horizontal_margin"
+                android:theme="@style/CommonTextView"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/iv_company_logo"
+                app:layout_constraintStart_toEndOf="@id/iv_company_logo"
+                app:layout_constraintTop_toTopOf="@id/iv_company_logo"
+                tools:text="Company name" />
+
+            <View
+                android:id="@+id/second_divider"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
+                android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
+                android:layout_marginEnd="@dimen/vacancy_details_horizontal_margin"
+                android:layout_marginBottom="@dimen/vacancy_details_vertical_margin"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_stub" />
+
+
+            <TextView
+                android:id="@+id/tv_vacancy_duties_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/duties"
+                android:theme="@style/VacancyDetailsConditionTextView"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/second_divider" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_duties_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:theme="@style/CommonTextView"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_duties_title"
+                tools:text="Duties details" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_requirements_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/requirements"
+                android:theme="@style/VacancyDetailsConditionTextView"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_duties_details" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_requirements_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:theme="@style/CommonTextView"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_requirements_title"
+                tools:text="Requirements details" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_conditions_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/conditions"
+                android:theme="@style/VacancyDetailsConditionTextView"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_requirements_details" />
+
+            <TextView
+                android:id="@+id/tv_vacancy_conditions_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:theme="@style/CommonTextView"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_vacancy_conditions_title"
+                tools:text="Conditions details" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_error_container"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="?android:attr/listDivider"
-        android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
-        android:layout_marginEnd="@dimen/vacancy_details_horizontal_margin"
-        android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
-        android:layout_marginBottom="@dimen/vacancy_details_vertical_margin"
-        app:layout_constraintTop_toBottomOf="@id/iv_company_logo"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
-<!--    <ScrollView-->
-<!--        android:id="@+id/sv_details"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/second_divider"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent">-->
+        <TextView
+            android:id="@+id/tv_details_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/common_layout_margin"
+            android:text="@string/loading_item_error"
+            android:textSize="@dimen/error_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-<!--    </ScrollView>-->
+        <Button
+            android:id="@+id/btn_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/common_layout_margin"
+            android:text="@string/refresh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_details_error" />
 
-    <TextView
-        android:id="@+id/tv_vacancy_duties_title"
-        android:text="@string/duties"
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_item_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
-        android:layout_marginBottom="@dimen/vacancy_details_vertical_margin"
-        android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/second_divider"
-        android:theme="@style/VacancyDetailsConditionTextView" />
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/tv_vacancy_duties_details"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
-        android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
-        android:theme="@style/CommonTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_vacancy_duties_title"
-        tools:text="Duties details"/>
-
-    <TextView
-        android:id="@+id/tv_vacancy_requirements_title"
-        android:text="@string/requirements"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
-        android:layout_marginBottom="@dimen/vacancy_details_vertical_margin"
-        android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_vacancy_duties_details"
-        android:theme="@style/VacancyDetailsConditionTextView" />
-
-    <TextView
-        android:id="@+id/tv_vacancy_requirements_details"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
-        android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
-        android:theme="@style/CommonTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_vacancy_requirements_title"
-        tools:text="Requirements details"/>
-
-    <TextView
-        android:id="@+id/tv_vacancy_conditions_title"
-        android:text="@string/conditions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
-        android:layout_marginBottom="@dimen/vacancy_details_vertical_margin"
-        android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_vacancy_requirements_details"
-        android:theme="@style/VacancyDetailsConditionTextView" />
-
-    <TextView
-        android:id="@+id/tv_vacancy_conditions_details"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/vacancy_details_horizontal_margin"
-        android:layout_marginTop="@dimen/vacancy_details_vertical_margin"
-        android:theme="@style/CommonTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_vacancy_conditions_title"
-        tools:text="Conditions details"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

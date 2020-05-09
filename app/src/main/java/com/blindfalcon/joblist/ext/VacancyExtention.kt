@@ -26,9 +26,7 @@ fun Vacancy.getDate(): String {
     return sdf.format(date)
 }
 
-fun Vacancy.getMetro(): String =
+fun Vacancy.getMetro(): String? =
     if (metro.isNotEmpty()) {
         metro.joinToString(", ") { it.metroTitle }
-    } else {
-        ""
-    }
+    } else null

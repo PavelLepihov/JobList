@@ -1,5 +1,7 @@
 package com.blindfalcon.joblist.ext
 
+import android.view.View.VISIBLE
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -21,4 +23,9 @@ fun Fragment.replaceChildFragment(fragment: Fragment, frameId: Int, tag: String?
     childFragmentManager.inTransaction {
         replace(frameId, fragment, tag)
     }
+}
+
+fun TextView.switchOnSetText(text: String?) {
+    visibility = VISIBLE
+    this.text = text
 }

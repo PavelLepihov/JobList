@@ -4,13 +4,12 @@ import com.blindfalcon.joblist.presentation.screens.app.AppActivity
 import com.blindfalcon.joblist.presentation.screens.app.AppActivityViewModel
 import com.blindfalcon.joblist.presentation.screens.main.MainFlowViewModel
 import com.blindfalcon.joblist.presentation.screens.main.details.DetailsFragment
+import com.blindfalcon.joblist.presentation.screens.main.details.DetailsScreenViewModel
 import com.blindfalcon.joblist.presentation.screens.main.search.SearchFragment
 import com.blindfalcon.joblist.presentation.screens.main.search.SearchScreenViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
-
-const val ID = "000"
 
 val viewModelModule = module {
     scope<AppActivity> {
@@ -24,6 +23,6 @@ val viewModelModule = module {
     }
 
     scope(named<DetailsFragment>()) {
-        //viewModel(named<MainFlowFragment>()) { MainFlowViewModel() }
+        viewModel(named<DetailsFragment>()) { DetailsScreenViewModel(get()) }
     }
 }

@@ -59,8 +59,8 @@ class VacancyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             tvCompany.visibility = VISIBLE
             ivCompany.visibility = VISIBLE
         }
-        if (item.getMetro().isNotBlank()) {
-            tvMetro.text = item.getMetro()
+        item.getMetro()?.let {
+            tvMetro.text = it
             tvMetro.visibility = VISIBLE
             ivMetro.visibility = VISIBLE
         }

@@ -26,7 +26,11 @@ class MainFlowFragment : Fragment() {
         viewModel.screenState.observe(viewLifecycleOwner, Observer { state ->
             when (state) {
                 is MainFlowScreenState.SearchScreen -> replaceFragment(SearchFragment())
-                is MainFlowScreenState.DetailsScreen -> replaceFragment(DetailsFragment())
+                is MainFlowScreenState.DetailsScreen -> replaceFragment(
+                    DetailsFragment.newInstance(
+                        state.vacancyId
+                    )
+                )
             }
         })
         viewModel.navigateToScreen(MainFlowScreenState.SearchScreen)

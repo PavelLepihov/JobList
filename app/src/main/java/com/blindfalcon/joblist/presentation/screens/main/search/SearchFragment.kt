@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blindfalcon.joblist.R
 import com.blindfalcon.joblist.data.repos.entity.Vacancy
+import com.blindfalcon.joblist.ext.hideSoftKeyboardOnFocusLostEnabled
 import com.blindfalcon.joblist.presentation.screens.main.MainFlowScreenState
 import com.blindfalcon.joblist.presentation.screens.main.MainFlowViewModel
 import kotlinx.android.synthetic.main.fragment_search.*
@@ -19,7 +20,10 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.androidx.viewmodel.scope.viewModel
 import org.koin.core.qualifier.named
 
-class SearchFragment : Fragment() {
+class SearchFragment(
+    private val keyword: String,
+    private val shouldLoad: Boolean
+) : Fragment() {
 
     private val searchViewModel: SearchScreenViewModel by lifecycleScope.viewModel(
         this,
@@ -57,12 +61,17 @@ class SearchFragment : Fragment() {
                 }
             })
         }
+        et_search.setText(keyword)
+        et_search.hideSoftKeyboardOnFocusLostEnabled(true)
+        if (shouldLoad) loadData()
 
         search_button.setOnClickListener {
+            et_search.clearFocus()
             isNotRefresh = true
             loadData()
         }
         srl_search.setOnRefreshListener {
+            et_search.clearFocus()
             isNotRefresh = false
             loadData()
         }
@@ -101,6 +110,12 @@ class SearchFragment : Fragment() {
     }
 
     private fun onItemClick(vacancyId: Int) {
-        mainFlowViewModel.navigateToScreen(MainFlowScreenState.DetailsScreen(vacancyId))
+        val keyword = et_search.text?.toString()
+        mainFlowViewModel.navigateToScreen(
+            MainFlowScreenState.DetailsScreen(
+                keyword ?: "",
+                vacancyId
+            )
+        )
     }
 }

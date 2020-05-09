@@ -25,7 +25,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.androidx.viewmodel.scope.viewModel
 import org.koin.core.qualifier.named
 
-class DetailsFragment : Fragment() {
+class DetailsFragment(val keyword: String, val vacancyId: Int) : Fragment() {
 
     private val detailsViewModel: DetailsScreenViewModel by lifecycleScope.viewModel(
         this,
@@ -33,19 +33,6 @@ class DetailsFragment : Fragment() {
     )
 
     private val mainFlowViewModel by lazy { requireParentFragment().getViewModel<MainFlowViewModel>() }
-
-    private var vacancyId: Int = -1
-
-    companion object {
-        fun newInstance(vacancyId: Int) =
-            DetailsFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(VACANCY_ID, vacancyId)
-                }
-            }
-
-        const val VACANCY_ID = "vacancy_id"
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +64,7 @@ class DetailsFragment : Fragment() {
                 }
             })
         }
-        vacancyId = arguments?.getInt(VACANCY_ID, -1)?.let { it } ?: -1
+
         detailsViewModel.loadData(vacancyId)
         btn_refresh.setOnClickListener { detailsViewModel.loadData(vacancyId) }
     }
@@ -112,7 +99,7 @@ class DetailsFragment : Fragment() {
     }
 
     private fun onBack() {
-        mainFlowViewModel.navigateToScreen(MainFlowScreenState.SearchScreen)
+        mainFlowViewModel.navigateToScreen(MainFlowScreenState.SearchScreen(keyword, true))
     }
 
     private fun setupCompany(client: Client?) {

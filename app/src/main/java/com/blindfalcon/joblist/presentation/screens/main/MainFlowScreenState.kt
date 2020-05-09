@@ -1,6 +1,13 @@
 package com.blindfalcon.joblist.presentation.screens.main
 
 sealed class MainFlowScreenState {
-    object SearchScreen: MainFlowScreenState()
-    data class DetailsScreen(val vacancyId: Int): MainFlowScreenState()
+    data class SearchScreen(
+        val keyword: String,
+        val shouldLoad: Boolean
+    ) : MainFlowScreenState()
+
+    data class DetailsScreen(
+        val keyword: String,
+        val vacancyId: Int
+    ) : MainFlowScreenState()
 }
